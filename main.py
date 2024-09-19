@@ -14,11 +14,7 @@ options = Options()
 options.binary_location = '/usr/bin/google-chrome'
 options.add_argument(ua.random)
 proxies = [
-    '219.140.149.208:8090',
-    '223.205.185.248:8080',
-    '222.70.20.234:5678',
-    '221.10.57.128:5138',
-    '147.45.48.237:8080',
+    'proxy',
 ]
 
 proxy = random.choice(proxies)
@@ -29,7 +25,7 @@ options.add_argument('--headless')
 
 
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
-driver.get("https://ru.tradingview.com/crypto-coins-screener/")
+driver.get("url")
 time.sleep(5)
 
 crypto_rows = driver.find_elements(By.CSS_SELECTOR, 'tbody tr')
